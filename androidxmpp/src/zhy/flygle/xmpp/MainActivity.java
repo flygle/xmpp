@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package zhy.flygle.xmpp;
 
 import java.io.IOException;
@@ -32,15 +31,15 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * Á¬½Ó·þÎñÆ÷
+	 * è¿žæŽ¥æœåŠ¡å™¨
 	 * 
 	 * @return
 	 */
 	public boolean conServer() {
 		ConnectionConfiguration config = new ConnectionConfiguration(SERVER_HOST, SERVER_PORT, SERVER_NAME);
-		/** ÉèÖÃÊÇ·ñÔÚÏß */
+		/** è®¾ç½®æ˜¯å¦åœ¨çº¿ */
 		config.setSendPresence(false);
-		/** ÊÇ·ñÆôÓÃµ÷ÊÔ */
+		/** æ˜¯å¦å¯ç”¨è°ƒè¯• */
 		// config.setDebuggerEnabled(true);
 		try {
 			connection = new XMPPConnection(config) {
@@ -133,27 +132,3 @@ public class MainActivity extends Activity {
 	
 	
 }
-=======
-package zhy.flygle.xmpp;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-
-public class MainActivity extends Activity {
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-}
->>>>>>> branch 'master' of https://github.com/flygle/xmpp.git
