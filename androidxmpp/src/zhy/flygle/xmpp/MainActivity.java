@@ -1,7 +1,8 @@
 package zhy.flygle.xmpp;
 
 import org.jivesoftware.smack.SmackException.NotConnectedException;
-import zhy.flygle.xmpp.tools.XmppUtils;
+
+import zhy.flygle.xmpp.utils.XmppUtils;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
