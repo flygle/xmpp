@@ -34,6 +34,10 @@ public class MainActivity extends Activity implements OnClickListener{
 	 * 状态
 	 */
 	private Button button05;
+	/**
+	 * 连接
+	 */
+	private Button button06;
 	
 	private EditText account_edit,password_edit;
 	private TextView account_status_text;
@@ -68,6 +72,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		button03=(Button)findViewById(R.id.button03);
 		button04=(Button)findViewById(R.id.button04);
 		button05=(Button)findViewById(R.id.button05);
+		button06=(Button)findViewById(R.id.button06);
 		account_edit=(EditText)findViewById(R.id.account_edit);
 		password_edit=(EditText)findViewById(R.id.password_edit);
 		account_status_text=(TextView)findViewById(R.id.account_status_text);
@@ -77,6 +82,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		button03.setOnClickListener(this);
 		button04.setOnClickListener(this);
 		button05.setOnClickListener(this);
+		button06.setOnClickListener(this);
 	}
 	
 	@Override
@@ -88,9 +94,11 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.button01:
 			account=account_edit.getText().toString();
 			password=password_edit.getText().toString();
-			if(account!=null&&account.trim().equals("")&&password!=null&&password.trim().equals("")){
+			System.out.println();
+			if(account!=null&&!account.trim().equals("")&&password!=null&&!password.trim().equals("")){
 				int status=XmppUtils.getInatance().regist(account,password);
-				if(status==0){
+				System.out.println("注册----"+status);
+				if(status==2){
 					showToast("注册成功");
 				}
 			}
@@ -98,7 +106,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.button02:
 			account=account_edit.getText().toString();
 			password=password_edit.getText().toString();
-			if(account!=null&&account.trim().equals("")&&password!=null&&password.trim().equals("")){
+			if(account!=null&&!account.trim().equals("")&&password!=null&&!password.trim().equals("")){
 				if(XmppUtils.getInatance().login(account,password)){
 					showToast("登录成功");
 				}
@@ -106,7 +114,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.button03:
 			account=account_edit.getText().toString();
-			if(account!=null&&account.trim().equals("")){
+			if(account!=null&&!account.trim().equals("")){
 				if(XmppUtils.getInatance().deleteAccount(account)){
 					showToast("退出成功");
 				}
@@ -114,7 +122,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.button04:
 			password=password_edit.getText().toString();
-			if(password!=null&&password.trim().equals("")){
+			if(password!=null&&!password.trim().equals("")){
 				if(XmppUtils.getInatance().changePassword(password)){
 					showToast("改密码成功");
 				}
@@ -153,6 +161,11 @@ public class MainActivity extends Activity implements OnClickListener{
 
 			default:
 				break;
+			}
+			break;
+		case R.id.button06:
+			if(XmppUtils.getInatance().conserver()){
+				showToast("连接成功");
 			}
 			break;
 
